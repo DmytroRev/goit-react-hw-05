@@ -26,6 +26,6 @@ export const getSearchMovies = async (query) => {
 }
 
 export const getMovieDetails = async (id) => {
-    const response = await axios.get(`/movie${id}`, options)
+    const response = await axios.get(`/movie/${id}`, options)
     return response.data
 }

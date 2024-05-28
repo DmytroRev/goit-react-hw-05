@@ -1,16 +1,19 @@
 import { Route, Routes } from "react-router-dom";
-import moviesList from "../../movies-list";
 import Navigation from "../Navigation/Navigation";
 import HomePage from "../../pages/HomePage/HomePage";
+import MovieDetailsPage from "../../pages/MovieDetailsPage/MovieDetailsPage";
+import NotFoundPage from "../../pages/NotFoundPage/NotFoundPage";
 
 export default function App() {
   return (
-    <>
+    <div>
       <Navigation />
-      <HomePage />
-    </>
-    // <Routes>
 
-    // </Routes>);
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/movies/:movieId" element={<MovieDetailsPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </div>
   );
 }
