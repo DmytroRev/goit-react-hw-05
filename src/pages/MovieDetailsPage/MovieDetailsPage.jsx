@@ -1,6 +1,13 @@
-import { Link, NavLink, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import { getMovieDetails } from "../../movies-list";
 import { useEffect, useRef, useState } from "react";
+// import MovieCast from "../../components/MovieCast/MovieCast";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
@@ -55,6 +62,15 @@ export default function MovieDetailsPage() {
           </ul>
         </section>
       )}
+      <ul>
+        <li>
+          <NavLink to="cast">Cast</NavLink>
+        </li>
+        <li>
+          <NavLink>Reviews</NavLink>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 }
