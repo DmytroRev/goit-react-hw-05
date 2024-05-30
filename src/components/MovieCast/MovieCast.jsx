@@ -2,27 +2,33 @@ import { useEffect, useState } from "react";
 import { getMovieCast } from "../../movies-list";
 import { useParams } from "react-router-dom";
 import logo from "../../images/logo.png";
+import { Loader } from "../Loader/Loader";
 
 export default function MovieCast() {
-  const { castId } = useParams();
+  const { movieId } = useParams();
   const [movieCast, setMovieCast] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
-    console.log(`Current castId: ${castId}`);
     const openCast = async () => {
       try {
-        const data = await getMovieCast(castId);
+        setLoader(true);
+        const data = await getMovieCast(movieId);
         setMovieCast(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoader(false);
       }
     };
     openCast();
-  }, [castId]);
+  }, [movieId]);
+
   return (
     <ul>
+      {loader && <Loader />}
       {movieCast.length > 0 &&
-        movieCast.map((list) => {
+        movieCast.map((list) => (
           <li key={list.id}>
             <img
               src={
@@ -32,8 +38,10 @@ export default function MovieCast() {
               }
               alt={list.name}
             />
-          </li>;
-        })}
+            <p>Character: {list.character}</p>
+            <p>Original name: {list.original_name}</p>
+          </li>
+        ))}
     </ul>
   );
 }

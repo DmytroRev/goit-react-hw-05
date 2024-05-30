@@ -6,22 +6,26 @@ import {
   useParams,
 } from "react-router-dom";
 import { getMovieDetails } from "../../movies-list";
-import { useEffect, useRef, useState } from "react";
-// import MovieCast from "../../components/MovieCast/MovieCast";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { Loader } from "../../components/Loader/Loader";
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState(null);
+  const [loader, setLoader] = useState(false);
   const location = useLocation();
   const backToPage = useRef(location.state ?? "/movies/");
 
   useEffect(() => {
     const openDetails = async () => {
       try {
+        setLoader(true);
         const data = await getMovieDetails(movieId);
         setMovieDetails(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoader(false);
       }
     };
     openDetails();
@@ -29,6 +33,7 @@ export default function MovieDetailsPage() {
 
   return (
     <div>
+      {loader && <Loader />}
       <p>
         <Link to={backToPage.current}>Go back</Link>
       </p>
@@ -67,10 +72,12 @@ export default function MovieDetailsPage() {
           <NavLink to="cast">Cast</NavLink>
         </li>
         <li>
-          <NavLink>Reviews</NavLink>
+          <NavLink to="reviews">Reviews</NavLink>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }
