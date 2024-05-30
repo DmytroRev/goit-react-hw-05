@@ -1,4 +1,29 @@
 .container {
+    padding: 20px 40px;
+    background-color: #5680E9;
+    margin-bottom: 30px;
+}
+
+.list {
     display: flex;
-    gap: 20px;
+        gap: 30px;
+}
+
+.link{ 
+    color: #E0FFFF;
+    font-size: 26px;
+        font-weight: 500;
+        padding: 5px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+}
+
+.link.active {
+    background-color: #5AB9EA;
+    transition: background-color 0.3s ease;
+    
+}
+
+li .link:hover {
+    background-color: #1C3A7E;
 }

@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    
+}
+
+.list {
+    width: 150px;
+    border: 2px solid #2C3E50;
+}
+
+
+
+.text {
+    /* padding-top: 5px; */
+    /* overflow-wrap: break-word; */
+}

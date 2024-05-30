@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getTrendingMovies } from "../../movies-list";
 import MovieList from "../../components/MovieList/MovieList";
 import { ErrorMessage } from "../../components/ErrorMessage/ErrorMessage";
+import css from "./HomePage.module.css";
 
 export default function HomePage() {
   const [trendingMovie, setTrendingMovie] = useState([]);
@@ -24,10 +25,10 @@ export default function HomePage() {
     fetchTrendingList();
   }, []);
   return (
-    <div>
-      <h2>Trending Today</h2>
+    <section className={css.container}>
+      <h2 className={css.text}>Trending Today</h2>
       {<MovieList data={trendingMovie} />}
       {isError && <ErrorMessage />}
-    </div>
+    </section>
   );
 }

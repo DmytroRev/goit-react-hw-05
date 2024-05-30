@@ -16,7 +16,7 @@ const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
 
 export default function App() {
   return (
-    <div>
+    <>
       <Navigation />
       <Suspense fallback={<Loader />}>
         <Routes>
@@ -29,6 +29,6 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-    </div>
+    </>
   );
 }
