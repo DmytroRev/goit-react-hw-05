@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import { Loader } from "../Loader/Loader";
+import { Toaster } from "react-hot-toast";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
 const MovieDetailsPage = lazy(() =>
@@ -17,6 +18,7 @@ const MovieReviews = lazy(() => import("../MovieReviews/MovieReviews"));
 export default function App() {
   return (
     <>
+      <Toaster />
       <Navigation />
       <Suspense fallback={<Loader />}>
         <Routes>

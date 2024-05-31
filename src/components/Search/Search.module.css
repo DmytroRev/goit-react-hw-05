@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.input {
+    border: 1px solid #898EA8;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 15px;
+    outline: none;
+    margin-right: 5px;
+}
+
+.input:focus{
+    border: 1px solid rgba(58, 58, 91, 0.8);
+}
+
+.btn {
+    width: 80px;
+    height: 32px;
+border-radius: 5px;
+border: none;
+background-color: #2B3A67;
+color: #FFFFFF;
+transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #3A4B82;
+}
