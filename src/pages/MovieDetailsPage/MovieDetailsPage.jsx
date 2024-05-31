@@ -35,7 +35,7 @@ export default function MovieDetailsPage() {
   return (
     <div className={css.container}>
       {loader && <Loader />}
-      <button className={css.goBack}>
+      <button className={css.goBackAndNav}>
         <Link to={backToPage.current}>Go back</Link>
       </button>
       {movieDetails !== null && (
@@ -74,12 +74,16 @@ export default function MovieDetailsPage() {
           </div>
         </section>
       )}
-      <ul>
+      <ul className={css.navLink}>
         <li>
-          <NavLink to="cast">Cast</NavLink>
+          <button className={css.goBackAndNav}>
+            <NavLink to="cast">Cast</NavLink>
+          </button>
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <button className={css.goBackAndNav}>
+            <NavLink to="reviews">Reviews</NavLink>
+          </button>
         </li>
       </ul>
       <Suspense fallback={<Loader />}>

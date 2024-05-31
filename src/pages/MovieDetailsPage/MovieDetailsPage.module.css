@@ -2,7 +2,7 @@
     padding: 15px;
 }
 
-.goBack {
+.goBackAndNav {
     margin-bottom: 15px;
     text-align: center;
     border: none;
@@ -15,7 +15,7 @@
 transition: background-color 0.3s ease;
 }
 
-.goBack:hover {
+.goBackAndNav:hover {
     background-color: #3A4B82;
 }
 
@@ -60,3 +60,11 @@ margin-left: auto;
 .textList {
     margin-bottom: 0;
 }
+
+.navLink {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 30px;
+}
+
